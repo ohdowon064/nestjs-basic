@@ -12,7 +12,7 @@ export class MoviesService {
   }
 
   getOne(id: number): Movie {
-    const movie = this.movies.find((movie) => movie.id === +id);
+    const movie = this.movies.find((movie) => movie.id === id);
     if (!movie) {
       throw new NotFoundException(`Movie with ID ${id} not found.`);
     }
@@ -21,7 +21,7 @@ export class MoviesService {
 
   deleteOne(id: number): void {
     this.getOne(id);
-    this.movies = this.movies.filter((movie) => movie.id !== +id);
+    this.movies = this.movies.filter((movie) => movie.id !== id);
     console.log(this.movies);
   }
 
